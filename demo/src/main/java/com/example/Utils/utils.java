@@ -23,8 +23,10 @@ public static int getRandom(int max){
 }
 public static String getPage(String url){
 
-char page = url.charAt(url.length()-1);
-String num = String.valueOf(page);
+    String [] trozos = url.split("/");
+
+
+String num = trozos[trozos.length-1];
 return num;
 
 }
