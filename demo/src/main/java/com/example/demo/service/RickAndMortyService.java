@@ -30,7 +30,9 @@ public class RickAndMortyService {
         String url = "https://rickandmortyapi.com/api/character/?page=" + page;
         CharactersModel chsm = restTemplate.getForObject(url, CharactersModel.class);
         // chsm =restTemplate.getForObject(chsm.info.next, CharactersModel.class);
-        
+        if (chsm.info.prev == null) {
+            chsm.info.prev = PAGE_ONE;
+        }
         return chsm;
     }
     public CharacterInfo getNextPage(String page) {
