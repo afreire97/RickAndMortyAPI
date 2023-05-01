@@ -21,13 +21,13 @@ public class WebController {
     public String charactersTemplate(Model model, @PathVariable String url) {
         CharactersModel chsm = rMortyService.getAllCharacters(url);
         model.addAttribute("characters", chsm.results);
-        CharacterInfo chinfo = rMortyService.getNextPage(url);
-        String next = chinfo.next;
+        String next = chsm.info.next;
         next = utils.getPage(next);
-        String prev = chinfo.prev;
+
+        String prev = chsm.info.prev;
         prev = utils.getPage(prev);
         
-        if (chinfo == null || chinfo.next == null) {
+        if (chsm == null || chsm.info.next == null) {
             next = "1";
         }
         model.addAttribute("prev", "/rickandmorty/alltemplate/" + prev);
