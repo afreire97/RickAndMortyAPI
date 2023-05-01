@@ -24,9 +24,45 @@
         transform: scale(1.20);
         transition: border 0.3s ease-in-out, transform 0.3s ease-in-out;
       }
+      @media (max-width: 767px) {
+  .card:hover {
+    border: 5% solid rgb(139, 228, 183);
+    transform: scale(1.05);
+    transition: border 0.3s ease-in-out, transform 0.3s ease-in-out;
+  }
+}
+  .logo {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  height: fit-content;
+  width: 100%; /* nuevo */
+  margin-top: 10vh;
+}
+
+#logo {
+  max-width: 100%;
+  max-height: 100%;
+}
+
+
     </style>
   </head>
+
+
+
+
+
+
   <body>
+
+
+<div class="logo">
+  <img id="logo" src="../static/img/logo.png" alt="logo de Rick and Morty">
+</div>
+
+
+
     <div class="container">
       <div class="row">
         <div
