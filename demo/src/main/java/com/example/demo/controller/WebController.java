@@ -20,18 +20,29 @@ public class WebController {
     @RequestMapping("/rickandmorty/alltemplate/{url}")
     public String charactersTemplate(Model model, @PathVariable String url) {
         CharactersModel chsm = rMortyService.getAllCharacters(url);
-        model.addAttribute("characters", chsm.results);
-        String next = chsm.info.next;
-        next = utils.getPage(next);
+        if (chsm == null) {
+            model.addAttribute("characters", new ArrayList<Character>());
+            model.addAttribute("prev", "/rickandmorty/alltemplate/1");
+            model.addAttribute("next", "/rickandmorty/alltemplate/1");
+        } else {
+            model.addAttribute("characters", chsm.results);
+            String next = chsm.info.next;
+            next = utils.getPage(next);
 
-        String prev = chsm.info.prev;
-        prev = utils.getPage(prev);
-        
-        if (chsm == null || chsm.info.next == null) {
-            next = "1";
+            String prev = chsm.info.prev;
+            prev = utils.getPage(prev);
+
+            if (next == null) {
+                next = "1";
+            }
+
+            if (prev == null) {
+                prev = "1";
+            }
+
+            model.addAttribute("prev", "/rickandmorty/alltemplate/" + prev);
+            model.addAttribute("next", "/rickandmorty/alltemplate/" + next);
         }
-        model.addAttribute("prev", "/rickandmorty/alltemplate/" + prev);
-        model.addAttribute("next", "/rickandmorty/alltemplate/" + next);
 
         return "rickandmortycharacters";
 
