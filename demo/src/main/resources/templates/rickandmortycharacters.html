@@ -81,19 +81,22 @@
             />
             <div class="card-body">
               <h5 th:text="${character.name}" class="card-title"></h5>
+              <p th:text="${character.status}" class="card-text "> </p>
+              <a href="#" class="btn btn-primary bg-success ">Go somewhere</a>
             </div>
+    
           </div>
         </div>
       </div>
 
       <div th:if="${prev}">
         <a th:href="${prev}">
-          <button>Previous Page</button>
+          <button class="btn btn-secondary btn-lg">Previous Page</button>
         </a>
       </div>
       <div th:if="${next}">
         <a th:href="${next}">
-          <button>Next Page</button>
+          <button class="btn btn-primary btn-lg">Next Page</button>
         </a>
       </div>
     
