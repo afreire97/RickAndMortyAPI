@@ -8,7 +8,6 @@ import org.springframework.web.servlet.view.RedirectView;
 import com.example.Utils.utils;
 import com.example.demo.models.CharacterInfo;
 import com.example.demo.models.CharacterModel;
-import com.example.demo.models.CharactersModel;
 import com.example.demo.service.RickAndMortyService;
 
 
