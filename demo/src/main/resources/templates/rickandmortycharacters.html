@@ -50,7 +50,19 @@
   max-width: 100%;
   max-height: 100%;
 }
+.bg-green{
 
+
+background-color: rgb(81, 247, 81);
+
+}
+.pages{
+display: flex;
+width: fit-content;
+flex-direction: row;
+flex-wrap: wrap;
+
+}
 
     </style>
   </head>
@@ -82,25 +94,27 @@
             <div class="card-body">
               <h5 th:text="${character.name}" class="card-title"></h5>
               <p th:text="${character.status}" class="card-text "> </p>
-              <a href="#" class="btn btn-primary bg-success ">Go somewhere</a>
+              <a href="#" class="btn btn-primary bg-green ">info</a>
             </div>
     
           </div>
         </div>
       </div>
 
-      <div th:if="${prev}">
-        <a th:href="${prev}">
-          <button class="btn btn-secondary btn-lg">Previous Page</button>
-        </a>
+      <div class="pages">
+        <div th:if="${prev}">
+          <a th:href="${prev}">
+            <button class="btn btn-secondary btn-lg bg-green">Previous Page</button>
+          </a>
+        </div>
+        <div th:if="${next}">
+          <a th:href="${next}">
+            <button class="btn btn-primary btn-lg bg-green">Next Page</button>
+          </a>
+        </div>
+      
+  
       </div>
-      <div th:if="${next}">
-        <a th:href="${next}">
-          <button class="btn btn-primary btn-lg">Next Page</button>
-        </a>
-      </div>
-    
-
 
 
     </div>
