@@ -14,31 +14,27 @@ import com.example.demo.service.RickAndMortyService;
 @Controller
 public class WebController {
 
-@Autowired
-RickAndMortyService rMortyService;
+    @Autowired
+    RickAndMortyService rMortyService;
 
+    @RequestMapping("/rickandmorty/alltemplate/{url}")
+    public String charactersTemplate(Model model, @PathVariable String url) {
+        CharactersModel chsm = rMortyService.getAllCharacters(url);
+        model.addAttribute("characters", chsm.results);
+        CharacterInfo chinfo = rMortyService.getNextPage(url);
+        String next = chinfo.next;
+        next = utils.getPage(next);
+        String prev = chinfo.prev;
+        prev = utils.getPage(prev);
+        
+        if (chinfo == null || chinfo.next == null) {
+            next = "1";
+        }
+        model.addAttribute("prev", "/rickandmorty/alltemplate/" + prev);
+        model.addAttribute("next", "/rickandmorty/alltemplate/" + next);
 
-@RequestMapping("/rickandmorty/alltemplate/{url}")
-public String charactersTemplate(Model model, @PathVariable String url){
-    CharactersModel chsm =  rMortyService.getAllCharacters(url);
-    CharacterInfo chinfo = rMortyService.getInfo(url);
-    model.addAttribute("characters", chsm.results);
-  
-    String next = chinfo.next;
-    next = utils.getPage(next);
-   
-    model.addAttribute("next", "/rickandmorty/alltemplate/" + next);
-    
-return "rickandmortycharacters";
+        return "rickandmortycharacters";
 
-
-}
-
-
-
-
-
-
-
+    }
 
 }

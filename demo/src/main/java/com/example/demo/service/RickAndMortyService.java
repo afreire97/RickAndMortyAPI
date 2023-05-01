@@ -1,5 +1,6 @@
 package com.example.demo.service;
 
+import java.net.URL;
 
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
@@ -17,7 +18,7 @@ public class RickAndMortyService {
     @Autowired
     private RestTemplate restTemplate;
     final String URL = "https://rickandmortyapi.com/api";
-
+    public final String PAGE_ONE = "https://rickandmortyapi.com/api/character/?page=1";
     public CharacterModel getCharacterRandom() {
         final int TOTAL_CHARACTERS = 826;
         int random = utils.getRandom(TOTAL_CHARACTERS);
@@ -32,12 +33,14 @@ public class RickAndMortyService {
         
         return chsm;
     }
-    public CharacterInfo getInfo(String page) {
+    public CharacterInfo getNextPage(String page) {
         String url = "https://rickandmortyapi.com/api/character/?page="+ page;
         CharactersModel chsm = restTemplate.getForObject(url, CharactersModel.class);
         // chsm =restTemplate.getForObject(chsm.info.next, CharactersModel.class);
-        
+       
         return chsm.info;
     }
+   
+
 }
 

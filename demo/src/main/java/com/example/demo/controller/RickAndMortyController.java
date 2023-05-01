@@ -34,12 +34,12 @@ public class RickAndMortyController {
     }
     @GetMapping("/rickandmorty/next")
     public  String nextCharacter() {
-        CharacterInfo info = rickAndMortyService.getInfo("1");
+        CharacterInfo info = rickAndMortyService.getNextPage("1");
         return info.next;
     }
     @GetMapping("/try")
     public  String next() {
-        CharacterInfo info = rickAndMortyService.getInfo("1");
+        CharacterInfo info = rickAndMortyService.getNextPage("1");
         String number = info.next;
         number = utils.getPage(number);
         return number;
