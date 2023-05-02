@@ -51,6 +51,8 @@ public class WebController {
 
             for (CharacterModel c : chsm.results) {
                 
+
+              
                 if (c.name.toLowerCase().equals(nombre.toLowerCase())) {
                     personajesEncontrados.add(c);
                 }else {
