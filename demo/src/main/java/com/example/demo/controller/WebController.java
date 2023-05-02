@@ -55,11 +55,7 @@ public class WebController {
               
                 if (c.name.toLowerCase().contains(nombre.toLowerCase())) {
                     personajesEncontrados.add(c);
-                }else {
-                    model.addAttribute("characters", chsm.results);
-
-                    return "rickandmortycharacters";}
-
+                }
 
 
             }
