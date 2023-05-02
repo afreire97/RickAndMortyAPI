@@ -56,7 +56,7 @@ public class WebController {
 
             
             
-            return "resultadobusqueda"; 
+            return "rickandmortycharacters"; 
         }
     
 
