@@ -43,7 +43,7 @@ public class WebController {
     }
     public class BusquedaController {
 
-        @PostMapping("/buscar")
+        @RequestMapping("/buscar")
         public String buscar(@RequestParam("nombre") String nombre, Model model) {
 
              CharactersModel chsm = rMortyService.getAll();
