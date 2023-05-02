@@ -43,7 +43,7 @@ public class WebController {
     }
     public class BusquedaController {
 
-        @RequestMapping("/buscar")
+        @PostMapping("/buscar")
         public String buscar(@RequestParam("nombre") String nombre, Model model) {
 
              CharactersModel chsm = rMortyService.getAll();
@@ -53,7 +53,7 @@ public class WebController {
                 
 
               
-                if (c.name.toLowerCase().equals(nombre.toLowerCase())) {
+                if (c.name.toLowerCase().contains(nombre.toLowerCase())) {
                     personajesEncontrados.add(c);
                 }else {
                     model.addAttribute("characters", chsm.results);
