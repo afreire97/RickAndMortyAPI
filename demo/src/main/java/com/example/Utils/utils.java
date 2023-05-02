@@ -26,7 +26,7 @@ public static String getPage(String url){
     String [] trozos = url.split("=");
 
 
-return = trozos[trozos.length-1];
+return trozos[trozos.length-1];
 
 }
 }
