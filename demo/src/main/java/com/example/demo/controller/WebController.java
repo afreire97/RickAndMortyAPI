@@ -41,7 +41,7 @@ public class WebController {
         model.addAttribute("prev", "/rickandmorty/alltemplate/" + prev);
         model.addAttribute("next", "/rickandmorty/alltemplate/" + next);
 
-        return "templates/rickandmortycharacters";
+        return "rickandmortycharacters";
 
     }
     
