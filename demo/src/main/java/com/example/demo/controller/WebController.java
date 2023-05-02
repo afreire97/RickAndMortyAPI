@@ -41,7 +41,7 @@ public class WebController {
         return "rickandmortycharacters";
 
     }
-    public class BusquedaController {
+    
 
         @PostMapping("/buscar")
         public String buscar(@RequestParam("nombre") String nombre, Model model) {
@@ -70,7 +70,7 @@ public class WebController {
             
             return "resultadobusqueda"; 
         }
-    }
+    
 
 
 }
