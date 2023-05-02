@@ -33,13 +33,12 @@ public class RickAndMortyService {
         }
         return chsm;
     }
-    public CharactersModel getAll() {
-        String url = "https://rickandmortyapi.com/api/character";
+    public CharactersModel searchByName(String name) {
+        String url = "https://rickandmortyapi.com/api/character/?name=" + name + "%";
         CharactersModel chsm = restTemplate.getForObject(url, CharactersModel.class);
-
-       
         return chsm;
     }
+    
     public CharacterInfo getNextPage(String page) {
         String url = "https://rickandmortyapi.com/api/character/?page="+ page;
         CharactersModel chsm = restTemplate.getForObject(url, CharactersModel.class);

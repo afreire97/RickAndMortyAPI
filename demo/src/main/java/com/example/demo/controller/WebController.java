@@ -49,20 +49,10 @@ public class WebController {
         @PostMapping("/buscar")
         public String buscar(@RequestParam("nombre") String nombre, Model model) {
 
-             CharactersModel chsm = rMortyService.getAll();
-             ArrayList<CharacterModel> personajesEncontrados = new ArrayList<>();
-
-            for (CharacterModel c : chsm.results) {
-                
-              
-                if (c.name.toLowerCase().contains(nombre.toLowerCase())) {
-                    personajesEncontrados.add(c);
-                }
-
-
-            }
+             CharactersModel chsm = rMortyService.searchByName(nombre);
+         
            
-            model.addAttribute("busqueda", personajesEncontrados);
+            model.addAttribute("busqueda", chsm.results);
 
             
             
