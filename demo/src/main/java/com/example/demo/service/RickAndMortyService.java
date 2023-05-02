@@ -34,7 +34,7 @@ public class RickAndMortyService {
         return chsm;
     }
     public CharactersModel searchByName(String name) {
-        String url = "https://rickandmortyapi.com/api/character/?name=" + name + "%";
+        String url = "https://rickandmortyapi.com/api/character/?name=" + name;
         CharactersModel chsm = restTemplate.getForObject(url, CharactersModel.class);
         return chsm;
     }
