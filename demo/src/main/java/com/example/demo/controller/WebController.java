@@ -7,7 +7,6 @@ import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.RequestMapping;
 
 import com.example.Utils.utils;
-import com.example.demo.models.CharacterInfo;
 import com.example.demo.models.CharactersModel;
 import com.example.demo.service.RickAndMortyService;
 

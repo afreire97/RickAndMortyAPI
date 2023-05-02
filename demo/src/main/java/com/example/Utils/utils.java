@@ -18,8 +18,7 @@ public static String getRandomNumberWithURL(){
 }
 public static int getRandom(int max){
     Random r = new Random();
-    int number = r.nextInt(max);
-    return number;
+    return  r.nextInt(max);
 }
 public static String getPage(String url){
 

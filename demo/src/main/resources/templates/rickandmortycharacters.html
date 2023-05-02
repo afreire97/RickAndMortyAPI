@@ -61,6 +61,11 @@ background-color: rgba(86, 226, 86, 0.966);
   justify-content: space-between;
   align-items: center;
 }
+.nav{
+
+margin-bottom: 0;
+
+}
 
     </style>
   </head>
@@ -72,10 +77,21 @@ background-color: rgba(86, 226, 86, 0.966);
 
   <body>
 
+
     <div class="logo">
       <img id="logo" src="/img/logo.png" alt="logo de Rick and Morty">
     </div>
 
+    <div class="nav">
+      <nav class="navbar bg-body-tertiary">
+      <div class="container-fluid">
+        <form class="d-flex" role="search">
+          <input class="form-control me-2" type="search" placeholder="Search" aria-label="Search">
+          <button class="btn btn-outline-success" type="submit">Search</button>
+        </form>
+      </div>
+    </nav>
+  </div>
 
     <div class="container">
       <div class="row">
@@ -102,12 +118,12 @@ background-color: rgba(86, 226, 86, 0.966);
       <div class="pages">
         <div th:if="${prev}">
           <a th:href="${prev}">
-            <button class="btn btn-secondary btn-lg bg-green">Previous Page</button>
+            <button class="btn btn-secondary btn-lg bg-green">Prev</button>
           </a>
         </div>
         <div th:if="${next}">
           <a th:href="${next}">
-            <button class="btn btn-primary btn-lg bg-green">Next Page</button>
+            <button class="btn btn-primary btn-lg bg-green">Next</button>
           </a>
         </div>
       
