@@ -1,6 +1,5 @@
 package com.example.demo.service;
 
-import java.net.URL;
 
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
@@ -38,9 +37,7 @@ public class RickAndMortyService {
         String url = "https://rickandmortyapi.com/api/character";
         CharactersModel chsm = restTemplate.getForObject(url, CharactersModel.class);
 
-        if (chsm.info.prev == null) {
-            chsm.info.prev = PAGE_ONE;
-        }
+       
         return chsm;
     }
     public CharacterInfo getNextPage(String page) {
