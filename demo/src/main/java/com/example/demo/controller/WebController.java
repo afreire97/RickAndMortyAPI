@@ -46,19 +46,6 @@ public class WebController {
     }
     
 
-        @PostMapping("/buscar")
-        public String buscar(@RequestParam("nombre") String nombre, Model model) {
-
-             CharactersModel chsm = rMortyService.searchByName(nombre);
-         
-           
-            model.addAttribute("busqueda", chsm.results);
-
-            
-            
-            return "rickandmortycharacters"; 
-        }
-    
-
+     
 
 }
