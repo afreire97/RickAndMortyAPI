@@ -47,23 +47,26 @@ public class WebController {
         public String buscar(@RequestParam("nombre") String nombre, Model model) {
 
              CharactersModel chsm = rMortyService.getAll();
-             ArrayList<CharacterModel> personajesEncontrados = new ArrayList<CharacterModel>();
+             ArrayList<CharacterModel> personajesEncontrados = new ArrayList<>();
 
             for (CharacterModel c : chsm.results) {
                 
                 if (c.name.toLowerCase().contains(nombre.toLowerCase())) {
                     personajesEncontrados.add(c);
-                }else return "rickandmortycharacters";
+                }else {personajesEncontrados = chsm.results;
+                    model.addAttribute("characters", chsm.results);
+
+                    return "rickandmortycharacters";}
 
 
 
             }
            
-            
-            
             model.addAttribute("busqueda", personajesEncontrados);
+
             
-            return "resultadobusqueda"; // Vista que mostrará las concurrencias encontradas
+            
+            return "resultadobusqueda"; 
         }
     }
 
